@@ -1,50 +1,51 @@
 import React, { Component } from 'react';
-import {Alert, TouchableOpacity, Image, StyleSheet, Text, View } from 'react-native';
+import {SafeAreaView, TextInput, StyleSheet, Dimensions, Platform, StatusBar} from 'react-native';
+
+// const DATA = [
+//     {
+//       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+//       title: 'First Item',
+//     },
+//     {
+//       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+//       title: 'Second Item',
+//     },
+//     {
+//       id: '58694a0f-3da1-471f-bd96-145571e29d72',
+//       title: 'Third Item',
+//     },
+// ];
+
+// function Item({ title }) {
+//     return (
+//     <TouchableOpacity>
+//         <Text style={styles.title}>{title}</Text>
+//     </TouchableOpacity>
+//     );
+//   }
+
+var width = Dimensions.get('window').width;
 
 export function FeedScreen() {
     return (
-        <View style={styles.body}>
-            <Text style={styles.lead}>Welcome to the feed.</Text>
-        </View>
+        <SafeAreaView>
+            <TextInput
+                style={styles.textInputStyle}
+                placeholder="Share with Jakarta.."
+            />
+        </SafeAreaView>
     );
   }
   
   
   const styles = StyleSheet.create({
-    body: {
-      backgroundColor: "#FFBD00",
-      flex: 1,
-      justifyContent: "center", 
-      alignItems: "center",
-    },
-    lead: {
-      fontSize: 25,
-      fontWeight: "500",
-      lineHeight: 30,
-      color: "white",
-      fontFamily: "Helvetica",
-      marginBottom: 50,
-    },
-    brand: {
-      height: 150,
-      width: 150,
-      marginBottom: 50,
-    },
-    enterButton: {
-      backgroundColor:'white',
-      borderRadius:10,
-      width: 300,
-      height: 50,
-      justifyContent: "center", 
-      alignItems: "center",
-    },
-    enterButtonText: {
-      color:'orange',
-      textAlign:'center',
-      fontSize: 25,
-      fontWeight: "500",
-      paddingLeft : 10,
-      paddingRight : 10
+    textInputStyle: {
+        backgroundColor: "white",
+        height: 60,
+        width: width,
+        fontSize: 15,
+        fontWeight: '700',
+        paddingHorizontal: 20,
     }
   });
   

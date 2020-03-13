@@ -23,14 +23,20 @@ function App() {
             headerTransparent: true,
           }}
         /> */}
-        
+
         {/* STACK SCREEN */}
         <Stack.Screen 
           name="Feed" 
           component={FeedScreen} 
           options={{
             animationEnabled: false,
-            headerTransparent: true,
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
           }}
         />
       </Stack.Navigator>

@@ -48,7 +48,7 @@ function App() {
           options={{
             animationEnabled: false,
             headerStyle: {
-              backgroundColor: '#f4511e',
+              backgroundColor: 'rgb(77, 135, 246)',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {

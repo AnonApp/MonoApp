@@ -44,11 +44,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   enterButtonText: {
-      color:'orange',
-      textAlign:'center',
-      fontSize: 25,
-      fontWeight: "500",
-      paddingLeft : 10,
-      paddingRight : 10
+    color:'orange',
+    textAlign:'center',
+    fontSize: 25,
+    fontWeight: "500",
+    paddingLeft : 10,
+    paddingRight : 10
   }
 });

@@ -26,7 +26,7 @@ function App() {
 
         {/* STACK SCREEN */}
         <Stack.Screen 
-          name="Feed" 
+          name="Jakarta" 
           component={FeedScreen} 
           options={{
             animationEnabled: false,

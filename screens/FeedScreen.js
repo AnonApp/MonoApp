@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {SafeAreaView, TextInput, StyleSheet, Dimensions, Platform, StatusBar} from 'react-native';
+import {SafeAreaView, View, TextInput, StyleSheet, Dimensions, Text} from 'react-native';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 // const DATA = [
 //     {
@@ -28,12 +29,92 @@ var width = Dimensions.get('window').width;
 
 export function FeedScreen() {
     return (
-        <SafeAreaView>
+        <ScrollView>
+            {/* TEXT INPUT */}
             <TextInput
                 style={styles.textInputStyle}
                 placeholder="Share with Jakarta.."
             />
-        </SafeAreaView>
+            {/* CONTENT */}
+            <TouchableOpacity style={styles.activity}>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.likeButton}>
+                        <Text style={styles.likeButtonText}>0</Text>
+                        <Text style={styles.likeButtonText}>👏</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.articleContainer}>
+                    <Text style={styles.article}>jangan kode2 ke cowok lo buat nganterin makanan ke rumah lo malem2. kalo dia dibegal kan berabe</Text>
+                    <Text style={styles.identity}>3m ago, Kuningan</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.activity}>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.likeButton}>
+                        <Text style={styles.likeButtonText}>0</Text>
+                        <Text style={styles.likeButtonText}>👏</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.articleContainer}>
+                    <Text style={styles.article}>kesel ga si kalo lo udah bikin temen lo. giliran dia yang salah kita biasa aja. giliran kita yang salah marahnya udah ga ketolongan. bangsat.</Text>
+                    <Text style={styles.identity}>5m ago, Tebet</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.activity}>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.likeButton}>
+                        <Text style={styles.likeButtonText}>0</Text>
+                        <Text style={styles.likeButtonText}>👏</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.articleContainer}>
+                    <Text style={styles.article}>temen gue marah tanpa sebab. pas gue tanya kenapa dia bilang ga kenapa napa. lama lama dia kasih tau. katanya dia gasuka main rahasiaan. semua orang punya rahasia kalii. ga semua orang bisa dipercaya</Text>
+                    <Text style={styles.identity}>5m ago, Senen</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.activity}>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.likeButton}>
+                        <Text style={styles.likeButtonText}>0</Text>
+                        <Text style={styles.likeButtonText}>👏</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.articleContainer}>
+                    <Text style={styles.article}>Lagi ngeliat liat hape temen, ga sengaja kebuka chat, dan ternyata dia chatting sama gebetan kita.</Text>
+                    <Text style={styles.identity}>6m ago, Rawamangun</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.activity}>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.likeButton}>
+                        <Text style={styles.likeButtonText}>0</Text>
+                        <Text style={styles.likeButtonText}>👏</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.articleContainer}>
+                    <Text style={styles.article}>Bagi-bagi kode promo gojek: ANAKBARU20</Text>
+                    <Text style={styles.identity}>9m ago, Haji Nawi</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.activity}>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.likeButton}>
+                        <Text style={styles.likeButtonText}>0</Text>
+                        <Text style={styles.likeButtonText}>👏</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.articleContainer}>
+                    <Text style={styles.article}>Banyak anak2 diluar sana kecanduan rokok,kecanduan narkoba,kecanduan alkohol,hamil. Tapi disini ada gue,gue cuma kecanduan tidur. Harusnya mama gue bangga..</Text>
+                    <Text style={styles.identity}>9m ago, Haji Nawi</Text>
+                </View>
+            </TouchableOpacity>
+
+        </ScrollView>
     );
   }
   
@@ -44,8 +125,46 @@ export function FeedScreen() {
         height: 60,
         width: width,
         fontSize: 15,
-        fontWeight: '700',
+        fontWeight: '400',
         paddingHorizontal: 20,
+    },
+    activity: {
+        backgroundColor: "white",
+        minHeight: 60,
+        paddingHorizontal: 20,
+        paddingVertical: 25,
+        borderWidth: 0.5,
+        borderColor: '#d6d7da',
+        flex: 1,
+        flexDirection: 'row',
+        width: width,
+    },
+    article: {
+        fontSize: 15,
+        fontWeight: "400",
+        lineHeight: 23
+    },
+    articleContainer:{
+        width: "90%",
+        paddingHorizontal: 10
+    },
+    identity: {
+        paddingTop: 10,
+        color: "grey"
+    },
+    likeButton: {
+        alignItems: "center",
+        backgroundColor: "rgb(240, 240, 240)",
+        borderRadius: 5,
+        paddingVertical: 5,
+        width: "90%",
+    },
+    buttonContainer: {
+        width: "10%",
+    },
+    likeButtonText: {
+        fontSize: 12,
+        lineHeight: 20
     }
   });
   

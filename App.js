@@ -5,6 +5,7 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FeedScreen } from './screens/FeedScreen.js'
+import { ThreadScreen } from './screens/ThreadScreen.js';
 import { WelcomeScreen } from './screens/WelcomeScreen.js';
 
 const Stack = createStackNavigator();
@@ -28,6 +29,22 @@ function App() {
         <Stack.Screen 
           name="Jakarta" 
           component={FeedScreen} 
+          options={{
+            animationEnabled: false,
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+
+        {/* THREAD SCREEN */}
+        <Stack.Screen 
+          name="Thread" 
+          component={ThreadScreen} 
           options={{
             animationEnabled: false,
             headerStyle: {

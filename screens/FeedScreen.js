@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import {SafeAreaView, View, TextInput, StyleSheet, Dimensions, Text} from 'react-native';
+import React from 'react';
+import {View, TextInput, StyleSheet, Dimensions, Text, Image} from 'react-native';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 // const DATA = [
 //     {
@@ -27,7 +29,7 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 var width = Dimensions.get('window').width;
 
-export function FeedScreen() {
+export function FeedScreen({navigation}) {
     return (
         <ScrollView>
             {/* TEXT INPUT */}
@@ -36,7 +38,7 @@ export function FeedScreen() {
                 placeholder="Share with Jakarta.."
             />
             {/* CONTENT */}
-            <TouchableOpacity style={styles.activity}>
+            <TouchableOpacity style={styles.activity} onPress={() => navigation.navigate('Thread')}>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.likeButton}>
                         <Text style={styles.likeButtonText}>0</Text>
@@ -49,7 +51,7 @@ export function FeedScreen() {
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.activity}>
+            <TouchableOpacity style={styles.activity} onPress={() => navigation.navigate('Thread')}>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.likeButton}>
                         <Text style={styles.likeButtonText}>0</Text>
@@ -62,7 +64,7 @@ export function FeedScreen() {
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.activity}>
+            <TouchableOpacity style={styles.activity} onPress={() => navigation.navigate('Thread')}>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.likeButton}>
                         <Text style={styles.likeButtonText}>0</Text>
@@ -75,7 +77,7 @@ export function FeedScreen() {
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.activity}>
+            <TouchableOpacity style={styles.activity} onPress={() => navigation.navigate('Thread')}>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.likeButton}>
                         <Text style={styles.likeButtonText}>0</Text>
@@ -88,7 +90,7 @@ export function FeedScreen() {
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.activity}>
+            <TouchableOpacity style={styles.activity} onPress={() => navigation.navigate('Thread')}>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.likeButton}>
                         <Text style={styles.likeButtonText}>0</Text>
@@ -96,12 +98,12 @@ export function FeedScreen() {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.articleContainer}>
-                    <Text style={styles.article}>Bagi-bagi kode promo gojek: ANAKBARU20</Text>
+                    <Text style={styles.article}>Bagi-bagi kode promo cgv: MARCH2CGV</Text>
                     <Text style={styles.identity}>9m ago, Haji Nawi</Text>
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.activity}>
+            <TouchableOpacity style={styles.activity} onPress={() => navigation.navigate('Thread')}>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.likeButton}>
                         <Text style={styles.likeButtonText}>0</Text>
@@ -165,6 +167,10 @@ export function FeedScreen() {
     likeButtonText: {
         fontSize: 12,
         lineHeight: 20
+    },
+    image: {
+        // width: '100%',
+        height: '100%'
     }
   });
   

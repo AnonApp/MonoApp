@@ -1,12 +1,12 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { Button, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FeedScreen } from './screens/FeedScreen.js'
 import { ThreadScreen } from './screens/ThreadScreen.js';
-import { WelcomeScreen } from './screens/WelcomeScreen.js';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +30,7 @@ function App() {
           name="Jakarta" 
           component={FeedScreen} 
           options={{
+            title: "Jakarta",
             animationEnabled: false,
             headerStyle: {
               backgroundColor: '#f4511e',

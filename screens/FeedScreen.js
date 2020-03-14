@@ -4,34 +4,34 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 const DATA = [
     {
-      id: '1',
-      article: 'jangan kode2 ke cowok lo buat nganterin makanan ke rumah lo malem2. kalo dia dibegal kan berabe',
-      identity: '3m ago, Kuningan'
+        id: '1',
+        article: 'jangan kode2 ke cowok lo buat nganterin makanan ke rumah lo malem2. kalo dia dibegal kan berabe',
+        identity: '3m ago, Kuningan'
     },
     {
-      id: '2',
-      article: 'kesel ga si kalo lo udah bikin temen lo. giliran dia yang salah kita biasa aja. giliran kita yang salah marahnya udah ga ketolongan. bangsat.',
-      identity: '5m ago, Tebet'
+        id: '2',
+        article: 'kesel ga si kalo lo udah bikin temen lo. giliran dia yang salah kita biasa aja. giliran kita yang salah marahnya udah ga ketolongan. bangsat.',
+        identity: '5m ago, Tebet'
     },
     {
-      id: '3',
-      article: 'temen gue marah tanpa sebab. pas gue tanya kenapa dia bilang ga kenapa napa. lama lama dia kasih tau. katanya dia gasuka main rahasiaan. semua orang punya rahasia kalii. ga semua orang bisa dipercaya',
-      identity: '5m ago, Senen'
+        id: '3',
+        article: 'temen gue marah tanpa sebab. pas gue tanya kenapa dia bilang ga kenapa napa. lama lama dia kasih tau. katanya dia gasuka main rahasiaan. semua orang punya rahasia kalii. ga semua orang bisa dipercaya',
+        identity: '5m ago, Senen'
     },
-    {
-      id: '4',
-      article: 'Lagi ngeliat liat hape temen, ga sengaja kebuka chat, dan ternyata dia chatting sama gebetan kita.',
-      identity: '6m ago, Rawamangun'
+    {   
+        id: '4',
+        article: 'Lagi ngeliat liat hape temen, ga sengaja kebuka chat, dan ternyata dia chatting sama gebetan kita.',
+        identity: '6m ago, Rawamangun'
     },
     {
         id: '5',
         article: 'Bagi-bagi kode promo cgv: MARCH2CGV',
-        identity: '9m ago, Haji Nawi'
+        identity: '6m ago, Haji Nawi'
     },
     {
         id: '6',
         article: 'Banyak anak2 diluar sana kecanduan rokok,kecanduan narkoba,kecanduan alkohol,hamil. Tapi disini ada gue,gue cuma kecanduan tidur. Harusnya mama gue bangga..',
-        identity: '9m ago, Haji Nawi'
+        identity: '10m ago, Rawamangun'
     },
 ];
 
@@ -50,7 +50,7 @@ function Item({ article, identity, navigation }) {
             </View>
         </TouchableOpacity>
     );
-  }
+}
 
 var width = Dimensions.get('window').width;
 

@@ -21,10 +21,6 @@ export function ThreadScreen() {
                 </View>
             </View>
 
-            {/* <KeyboardAvoidingView>
-                <TextInput style={styles.textInputStyle} placeholder="Say something nice.."/>
-            </KeyboardAvoidingView> */}
-
             <View style={styles.replyContainer}>
                 <View style={styles.buttonContainer}>
                     <View style={styles.likeButton}>
@@ -36,6 +32,10 @@ export function ThreadScreen() {
                     <Text style={styles.identity}>Now</Text>
                 </View>
             </View>
+
+            {/* <KeyboardAvoidingView>
+                <TextInput style={styles.textInputStyle} placeholder="Say something nice.."/>
+            </KeyboardAvoidingView> */}
         </ScrollView>
     );
 }

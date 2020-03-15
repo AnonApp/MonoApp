@@ -4,62 +4,105 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 const DATA = [
     {
+        id: '0',
+        article: 'Feel so lonely sometimes in this big world. 😭',
+        identity: 'Kuningan, Now',
+        replies: 0,
+        likes: 10,
+    },
+    {
         id: '1',
         article: 'jangan kode2 ke cowok lo buat nganterin makanan ke rumah lo malem2. kalo dia dibegal kan berabe',
-        identity: '3m ago, Kuningan'
+        identity: 'Kuningan, 3m ago',
+        replies: 1,
+        likes: 7,
     },
     {
         id: '2',
         article: 'kesel ga si kalo lo udah bikin temen lo. giliran dia yang salah kita biasa aja. giliran kita yang salah marahnya udah ga ketolongan. bangsat.',
-        identity: '5m ago, Tebet'
+        identity: 'Tebet, 5m ago',
+        replies: 0,
+        likes: 0,
     },
     {
         id: '3',
         article: 'temen gue marah tanpa sebab. pas gue tanya kenapa dia bilang ga kenapa napa. lama lama dia kasih tau. katanya dia gasuka main rahasiaan. semua orang punya rahasia kalii. ga semua orang bisa dipercaya',
-        identity: '5m ago, Senen'
+        identity: 'Senen, 5m ago',
+        replies: 0,
+        likes: 0,
     },
     {   
         id: '4',
         article: 'Lagi ngeliat liat hape temen, ga sengaja kebuka chat, dan ternyata dia chatting sama gebetan kita.',
-        identity: '6m ago, Rawamangun'
+        identity: 'Rawamangun, 6m ago',
+        replies: 0,
+        likes: 2,
     },
     {
         id: '5',
         article: 'Bagi-bagi kode promo cgv: MARCH2CGV',
-        identity: '6m ago, Haji Nawi'
+        identity: 'Haji Nawi, 6m ago',
+        replies: 0,
+        likes: 1,
     },
     {
         id: '6',
         article: 'Banyak anak2 diluar sana kecanduan rokok,kecanduan narkoba,kecanduan alkohol,hamil. Tapi disini ada gue,gue cuma kecanduan tidur. Harusnya mama gue bangga..',
-        identity: '10m ago, Rawamangun'
+        identity: 'Rawamangun, 10m ago',
+        replies: 0,
+        likes: 8,
     },
 ];
 
-function Item({ article, identity, navigation }) {
+function Item({ article, identity, replies, likes, navigation }) {
     return (
-        <TouchableOpacity style={styles.activity} onPress={() => navigation.navigate('Thread')}>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.likeButton}>
-                    <Text style={styles.likeButtonText}>0</Text>
-                    <Text style={styles.likeButtonText}>👏</Text>
-                </TouchableOpacity>
-            </View>
+        <View style={styles.itemContainer}>
             <View style={styles.articleContainer}>
                 <Text style={styles.article}>{article}</Text>
-                <Text style={styles.identity}>{identity}</Text>
             </View>
-        </TouchableOpacity>
+            <View style={styles.footContainer}>
+                <View style={styles.identityContainer}>
+                    <Text style={styles.identity}>{identity}</Text>
+                    <ThreadButton numberOfReplies={replies} navigation={navigation} />
+                </View>
+                <View style={styles.likeContainer}>
+                    <LikeButton numberOfLikes={likes}/>
+                </View>
+            </View>
+        </View>
     );
 }
 
-var width = Dimensions.get('window').width;
+function ThreadButton({numberOfReplies, navigation}) {
+    if (numberOfReplies > 0) {
+        return (
+            <TouchableOpacity onPress={() => navigation.navigate('Thread')}>
+                <Text style={styles.replies}>👋{numberOfReplies}</Text>
+            </TouchableOpacity>
+        );
+    } else {
+        return (null);
+    }
+}
+
+function LikeButton({numberOfLikes}) {
+    if (numberOfLikes > 0) {
+        return (
+            <TouchableOpacity>
+                <Text style={styles.likes}>{numberOfLikes} ♥️</Text>
+            </TouchableOpacity>
+        )
+    } else {
+        return (null);
+    }
+}
 
 export function FeedScreen({navigation}) {
     return (
         <ScrollView>
             {/* TEXT INPUT */}
             <TextInput
-                style={styles.textInputStyle}
+                style={styles.textInput}
                 placeholder="Share with Jakarta.."
                 onFocus={() => navigation.setOptions({ 
                     title: "New Update",
@@ -75,7 +118,7 @@ export function FeedScreen({navigation}) {
             {/* CONTENT */}
             <FlatList
                 data={DATA}
-                renderItem={({ item }) => ( <Item article={item.article} identity={item.identity} navigation={navigation} /> )}
+                renderItem={({ item }) => ( <Item article={item.article} identity={item.identity} replies={item.replies} likes={item.likes} navigation={navigation} /> )}
                 keyExtractor={item => item.id}
             />
         </ScrollView>
@@ -84,55 +127,51 @@ export function FeedScreen({navigation}) {
   
   
   const styles = StyleSheet.create({
-    textInputStyle: {
+    textInput: {
         backgroundColor: "white",
         height: 60,
-        width: width,
-        fontSize: 15,
+        width: Dimensions.get('window').width,
+        fontSize: 19,
         fontWeight: '500',
         paddingHorizontal: 20,
     },
-    activity: {
+    itemContainer: {
         backgroundColor: "white",
-        minHeight: 60,
-        paddingHorizontal: 20,
-        paddingVertical: 25,
+        padding: 20,
         borderWidth: 0.5,
         borderColor: '#d6d7da',
+        minHeight: 100,
         flex: 1,
-        flexDirection: 'row',
-        width: width,
+        flexDirection: "column",
     },
     article: {
-        fontSize: 15,
-        fontWeight: "500",
-        lineHeight: 23
+        fontSize: 19,
     },
-    articleContainer:{
-        width: "90%",
-        paddingHorizontal: 10
+    footContainer: {
+        flex: 1,
+        flexDirection: "row",
+        paddingTop: 30,
+    },
+    identityContainer: {
+        flex: 0.7,
+        flexDirection: "row"
     },
     identity: {
-        paddingTop: 10,
+        fontSize: 12,
         color: "grey"
     },
-    likeButton: {
-        alignItems: "center",
-        backgroundColor: "rgb(240, 240, 240)",
-        borderRadius: 5,
-        paddingVertical: 5,
-        width: "90%",
-    },
-    buttonContainer: {
-        width: "10%",
-    },
-    likeButtonText: {
+    replies: {
         fontSize: 12,
-        lineHeight: 20
+        color: "grey",
+        paddingLeft: 10
     },
-    image: {
-        // width: '100%',
-        height: '100%'
+    likeContainer: {
+        flex: 0.3,
+    },
+    likes: {
+        fontSize: 12,
+        color: "grey",
+        textAlign: "right"
     }
   });
   

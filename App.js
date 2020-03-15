@@ -37,7 +37,8 @@ function App() {
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
-              fontWeight: 'bold',
+              fontWeight: '800',
+              fontSize: 20,
             },
           }}
         />

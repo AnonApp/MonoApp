@@ -5,7 +5,7 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 const DATA = [
     {
         id: '0',
-        article: 'Feel so lonely sometimes in this big world. 😭',
+        article: 'Feel so lonely sometimes in this big world',
         identity: 'Kuningan, Now',
         replies: 0,
         likes: 10,
@@ -13,7 +13,7 @@ const DATA = [
     {
         id: '1',
         article: 'jangan kode2 ke cowok lo buat nganterin makanan ke rumah lo malem2. kalo dia dibegal kan berabe',
-        identity: 'Kuningan, 3m ago',
+        identity: 'Tomang, 3m ago',
         replies: 1,
         likes: 7,
     },
@@ -105,7 +105,7 @@ export function FeedScreen({navigation}) {
                 style={styles.textInput}
                 placeholder="Share with Jakarta.."
                 onFocus={() => navigation.setOptions({ 
-                    title: "New Update",
+                    title: "New Post",
                     headerRight: () => (<TouchableOpacity onPress={Keyboard.dismiss} style={{margin: 10}}><Text style={{color: 'white', fontSize: 18, fontWeight: '700'}}>Post</Text></TouchableOpacity>),
                     headerLeft: () => (<TouchableOpacity onPress={Keyboard.dismiss} style={{margin: 10}}><Text style={{color: 'white', fontSize: 18, fontWeight: '700'}}>X</Text></TouchableOpacity>),
                 })}
@@ -131,9 +131,9 @@ export function FeedScreen({navigation}) {
         backgroundColor: "white",
         height: 60,
         width: Dimensions.get('window').width,
-        fontSize: 19,
+        fontSize: 17,
         fontWeight: '500',
-        paddingHorizontal: 20,
+        paddingHorizontal: 25,
     },
     itemContainer: {
         backgroundColor: "white",
@@ -145,7 +145,8 @@ export function FeedScreen({navigation}) {
         flexDirection: "column",
     },
     article: {
-        fontSize: 19,
+        fontSize: 17,
+        // lineHeight: 20
     },
     footContainer: {
         flex: 1,
@@ -157,11 +158,11 @@ export function FeedScreen({navigation}) {
         flexDirection: "row"
     },
     identity: {
-        fontSize: 12,
+        fontSize: 14,
         color: "grey"
     },
     replies: {
-        fontSize: 12,
+        fontSize: 14,
         color: "grey",
         paddingLeft: 10
     },
@@ -169,7 +170,7 @@ export function FeedScreen({navigation}) {
         flex: 0.3,
     },
     likes: {
-        fontSize: 12,
+        fontSize: 15,
         color: "grey",
         textAlign: "right"
     }

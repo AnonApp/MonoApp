@@ -56,7 +56,7 @@ const DATA = [
 
 function Item({ article, identity, replies, likes, navigation }) {
     return (
-        <View style={styles.itemContainer}>
+        <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Thread')}>
             <View style={styles.articleContainer}>
                 <Text style={styles.article}>{article}</Text>
             </View>
@@ -69,7 +69,7 @@ function Item({ article, identity, replies, likes, navigation }) {
                     <LikeButton numberOfLikes={likes}/>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 

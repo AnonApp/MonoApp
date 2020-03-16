@@ -54,19 +54,19 @@ const DATA = [
     },
 ];
 
-function Item({ article, identity, replies, likes, navigation }) {
+function Item({ data, navigation }) {
     return (
-        <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Thread')}>
+        <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Thread', {jsonData: data})}>
             <View>
-                <Text style={styles.article}>{article}</Text>
+                <Text style={styles.article}>{data.article}</Text>
             </View>
             <View style={styles.footContainer}>
                 <View style={styles.identityContainer}>
-                    <Text style={styles.identity}>{identity}</Text>
-                    <ThreadButton numberOfReplies={replies} navigation={navigation} />
+                    <Text style={styles.identity}>{data.identity}</Text>
+                    <ThreadButton numberOfReplies={data.replies} navigation={navigation} />
                 </View>
                 <View style={styles.likeContainer}>
-                    <LikeButton numberOfLikes={likes}/>
+                    <LikeButton numberOfLikes={data.likes}/>
                 </View>
             </View>
         </TouchableOpacity>
@@ -113,13 +113,12 @@ export function FeedScreen({navigation}) {
                     title: 'Jakarta',
                     headerRight: null,
                     headerLeft: null,
-                    // headerLeft: () => (<TouchableOpacity style={{paddingHorizontal: 15}} onPress={() => navigation.navigate('Home')}><Text style={{fontSize: 30}}>📍</Text></TouchableOpacity>),
                 })}
             />
             {/* CONTENT */}
             <FlatList
                 data={DATA}
-                renderItem={({ item }) => ( <Item article={item.article} identity={item.identity} replies={item.replies} likes={item.likes} navigation={navigation} /> )}
+                renderItem={({ item }) => ( <Item data={item} navigation={navigation} /> )}
                 keyExtractor={item => item.id}
             />
         </ScrollView>
@@ -147,8 +146,6 @@ export function FeedScreen({navigation}) {
     },
     article: {
         fontSize: 17,
-        // fontFamily: "Nunito",
-        // fontWeight: "500"
     },
     footContainer: {
         flex: 1,
@@ -174,7 +171,8 @@ export function FeedScreen({navigation}) {
     likes: {
         fontSize: 15,
         color: "grey",
-        textAlign: "right"
+        textAlign: "right",
+        fontWeight: "600"
     }
   });
   

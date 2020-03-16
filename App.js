@@ -7,7 +7,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { FeedScreen } from './screens/FeedScreen.js'
 import { ThreadScreen } from './screens/ThreadScreen.js';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { HomeScreen } from './screens/HomeScreen.js';
 
 const Stack = createStackNavigator();
 
@@ -26,24 +25,6 @@ function App() {
           }}
         /> */}
 
-        {/* HOME SCREEN */}
-        {/* <Stack.Screen
-          name = "Home"
-          component={HomeScreen}
-          options={{
-            title: "private",
-            animationEnabled: false,
-            headerStyle: {
-              backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: '800',
-              fontSize: 20,
-            },
-          }}
-        /> */}
-
         {/* FEED SCREEN */}
         <Stack.Screen 
           name="Feed" 
@@ -59,11 +40,6 @@ function App() {
               fontWeight: '800',
               fontSize: 20,
             },
-            // headerLeft: () => (
-            //   <TouchableOpacity style={{paddingHorizontal: 15}} onPress={() => navigation.navigate('Home')}>
-            //     <Text style={{fontSize: 30}}>📍</Text>
-            //   </TouchableOpacity>
-            // )
           })}
         />
 

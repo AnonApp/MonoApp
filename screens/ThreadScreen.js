@@ -1,23 +1,24 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions, Text, KeyboardAvoidingView, Button} from 'react-native';
-import { TouchableOpacity, ScrollView, TextInput } from 'react-native-gesture-handler';
+import {View, StyleSheet, Dimensions, Text} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 var width = Dimensions.get('window').width;
 
-export function ThreadScreen() {
+export function ThreadScreen({route}) {
+    const {jsonData} = route.params;
     return (
         <ScrollView>
             {/* CONTENT */}
             <View style={styles.itemContainer}>
                 <View style={styles.articleContainer}>
-                    <Text style={styles.article}>jangan kode2 ke cowok lo buat nganterin makanan ke rumah lo malem2. kalo dia dibegal kan berabe</Text>
+                    <Text style={styles.article}>{jsonData.article}</Text>
                 </View>
                 <View style={styles.footContainer}>
                     <View style={styles.identityContainer}>
-                        <Text style={styles.identity}>Tomang, 3m ago</Text>
+                        <Text style={styles.identity}>{jsonData.identity}</Text>
                     </View>
                     <View style={styles.likeContainer}>
-                        <Text style={styles.likes}>3 ❤️</Text>
+                        <Text style={styles.likes}>{jsonData.likes} ❤️</Text>
                     </View>
                 </View>
             </View>
@@ -51,7 +52,6 @@ const styles = StyleSheet.create({
     },
     article: {
         fontSize: 17,
-        // lineHeight: 20
     },
     footContainer: {
         flex: 1,

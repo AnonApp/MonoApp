@@ -57,7 +57,7 @@ const DATA = [
 function Item({ article, identity, replies, likes, navigation }) {
     return (
         <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('Thread')}>
-            <View style={styles.articleContainer}>
+            <View>
                 <Text style={styles.article}>{article}</Text>
             </View>
             <View style={styles.footContainer}>
@@ -112,7 +112,8 @@ export function FeedScreen({navigation}) {
                 onBlur={() => navigation.setOptions({ 
                     title: 'Jakarta',
                     headerRight: null,
-                    headerLeft: null
+                    headerLeft: null,
+                    // headerLeft: () => (<TouchableOpacity style={{paddingHorizontal: 15}} onPress={() => navigation.navigate('Home')}><Text style={{fontSize: 30}}>📍</Text></TouchableOpacity>),
                 })}
             />
             {/* CONTENT */}
@@ -146,7 +147,8 @@ export function FeedScreen({navigation}) {
     },
     article: {
         fontSize: 17,
-        // lineHeight: 20
+        // fontFamily: "Nunito",
+        // fontWeight: "500"
     },
     footContainer: {
         flex: 1,

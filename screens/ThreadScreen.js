@@ -8,30 +8,20 @@ export function ThreadScreen() {
     return (
         <ScrollView>
             {/* CONTENT */}
-            <View style={styles.activity}>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.likeButton}>
-                        <Text style={styles.likeButtonText}>0</Text>
-                        <Text style={styles.likeButtonText}>👏</Text>
-                    </TouchableOpacity>
-                </View>
+            <View style={styles.itemContainer}>
                 <View style={styles.articleContainer}>
                     <Text style={styles.article}>jangan kode2 ke cowok lo buat nganterin makanan ke rumah lo malem2. kalo dia dibegal kan berabe</Text>
-                    <Text style={styles.identity}>3m ago, Kuningan</Text>
+                </View>
+                <View style={styles.footContainer}>
+                    <View style={styles.identityContainer}>
+                        <Text style={styles.identity}>Tomang, 3m ago</Text>
+                    </View>
+                    <View style={styles.likeContainer}>
+                        <Text style={styles.likes}>3 ❤️</Text>
+                    </View>
                 </View>
             </View>
 
-            <View style={styles.replyContainer}>
-                <View style={styles.buttonContainer}>
-                    <View style={styles.likeButton}>
-                        <Text style={styles.likeButtonText}>🤪</Text>
-                    </View>
-                </View>
-                <View style={styles.articleContainer}>
-                    <Text style={styles.reply}>Kenapa sih cowok pada sirik aja</Text>
-                    <Text style={styles.identity}>Now</Text>
-                </View>
-            </View>
 
             {/* <KeyboardAvoidingView>
                 <TextInput style={styles.textInputStyle} placeholder="Say something nice.."/>
@@ -50,63 +40,44 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         paddingHorizontal: 20,
     },
-    activity: {
+    itemContainer: {
         backgroundColor: "white",
-        minHeight: 60,
-        paddingHorizontal: 20,
-        paddingVertical: 25,
+        padding: 20,
         borderWidth: 0.5,
         borderColor: '#d6d7da',
+        minHeight: 100,
         flex: 1,
-        flexDirection: 'row',
-        width: width,
-    },
-    replyContainer: {
-        backgroundColor: "white",
-        minHeight: 60,
-        paddingHorizontal: 20,
-        paddingVertical: 25,
-        borderWidth: 0.5,
-        borderColor: '#d6d7da',
-        flex: 1,
-        flexDirection: 'row',
-        width: width,
-    },
-    reply: {
-        fontSize: 15,
-        fontWeight: "400",
-        lineHeight: 23
+        flexDirection: "column",
     },
     article: {
         fontSize: 17,
-        fontWeight: "400",
-        lineHeight: 23
+        // lineHeight: 20
     },
-    articleContainer:{
-        width: "90%",
-        paddingHorizontal: 10
+    footContainer: {
+        flex: 1,
+        flexDirection: "row",
+        paddingTop: 30,
+    },
+    identityContainer: {
+        flex: 0.7,
+        flexDirection: "row"
     },
     identity: {
-        paddingTop: 10,
+        fontSize: 14,
         color: "grey"
     },
-    likeButton: {
-        alignItems: "center",
-        backgroundColor: "rgb(240, 240, 240)",
-        borderRadius: 5,
-        paddingVertical: 5,
-        width: "90%",
+    replies: {
+        fontSize: 14,
+        color: "grey",
+        paddingLeft: 10
     },
-    buttonContainer: {
-        width: "10%",
+    likeContainer: {
+        flex: 0.3,
     },
-    likeButtonText: {
-        fontSize: 12,
-        lineHeight: 20
-    },
-    image: {
-        // width: '100%',
-        height: '100%'
-    },
+    likes: {
+        fontSize: 15,
+        color: "grey",
+        textAlign: "right"
+    }
   });
   

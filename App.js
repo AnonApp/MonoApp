@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { Button, Text } from 'react-native';
+import { Keyboard, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FeedScreen } from './screens/FeedScreen.js'
@@ -27,8 +27,8 @@ function App() {
         /> */}
 
         {/* HOME SCREEN */}
-        <Stack.Screen
-          name = "Private"
+        {/* <Stack.Screen
+          name = "Home"
           component={HomeScreen}
           options={{
             title: "private",
@@ -42,13 +42,13 @@ function App() {
               fontSize: 20,
             },
           }}
-        />
+        /> */}
 
         {/* FEED SCREEN */}
         <Stack.Screen 
           name="Feed" 
           component={FeedScreen} 
-          options={{
+          options= {({ navigation, route }) => ({
             title: "Jakarta",
             animationEnabled: false,
             headerStyle: {
@@ -59,7 +59,12 @@ function App() {
               fontWeight: '800',
               fontSize: 20,
             },
-          }}
+            // headerLeft: () => (
+            //   <TouchableOpacity style={{paddingHorizontal: 15}} onPress={() => navigation.navigate('Home')}>
+            //     <Text style={{fontSize: 30}}>📍</Text>
+            //   </TouchableOpacity>
+            // )
+          })}
         />
 
         {/* THREAD SCREEN */}

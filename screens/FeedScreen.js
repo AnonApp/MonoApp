@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, TextInput, StyleSheet, Dimensions, Text, FlatList, Keyboard, Alert} from 'react-native';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import firebase from 'react-native-firebase';
 
 const DATA = [
     {
@@ -97,16 +98,54 @@ function LikeButton({numberOfLikes}) {
     }
 }
 
+function setUpdate({ article }) {
+    const ref = firebase.firestore().collection('updates').doc('NnJZtAAxF5cB6BUKoN8f');
+
+    firebase
+        .firestore()
+        .runTransaction(async transaction => {
+            const doc = await transaction.get(ref);
+
+            // if it does not exist set the population to one
+            if (!doc.exists) {
+            transaction.set(ref, { population: 1 });
+            // return the new value so we know what the new population is
+            return 1;
+            }
+
+            // exists already so lets increment it + 1
+            const newPopulation = doc.data().population + 1;
+
+            transaction.update(ref, {
+            population: newPopulation,
+            });
+
+            // return the new value so we know what the new population is
+            return newPopulation;
+        })
+        .then(newPopulation => {
+            console.log(
+            `Transaction successfully committed and new population is '${newPopulation}'.`
+            );
+        })
+        .catch(error => {
+            console.log('Transaction failed: ', error);
+        });
+  }
+
 export function FeedScreen({navigation}) {
+    const ref = firestore().collection('updates');
+    const [update, newUpdate] = useState('');
     return (
         <ScrollView>
             {/* TEXT INPUT */}
             <TextInput
                 style={styles.textInput}
                 placeholder="Share with Jakarta.."
+                onChangeText={(val) => newUpdate(val)}
                 onFocus={() => navigation.setOptions({ 
                     title: "New Post",
-                    headerRight: () => (<TouchableOpacity onPress={Keyboard.dismiss} style={{margin: 10}}><Text style={{color: 'white', fontSize: 18, fontWeight: '700'}}>Post</Text></TouchableOpacity>),
+                    headerRight: () => (<TouchableOpacity onPress={() => setUpdate({newUpdate})} style={{margin: 10}}><Text style={{color: 'white', fontSize: 18, fontWeight: '700'}}>Post</Text></TouchableOpacity>),
                     headerLeft: () => (<TouchableOpacity onPress={Keyboard.dismiss} style={{margin: 10}}><Text style={{color: 'white', fontSize: 18, fontWeight: '700'}}>X</Text></TouchableOpacity>),
                 })}
                 onBlur={() => navigation.setOptions({ 

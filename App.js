@@ -1,54 +1,66 @@
-import React, { Component } from 'react';
-import {Alert, TouchableOpacity, Image, StyleSheet, Text, View } from 'react-native';
+// In App.js in a new project
 
-export default class WelcomeScreen extends Component {
-  render() {
-    return (
-      <View style={styles.body}>
-        <Image source={require('./assets/logo.png')} style={styles.brand}></Image>
-        <Text style={styles.lead}>It's a curious world.</Text>
-        <TouchableOpacity style={styles.enterButton} onPress={() => Alert.alert("We are launching soon!")}>
-          <Text style={styles.enterButtonText}>Enter</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+import * as React from 'react';
+import { Keyboard, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { FeedScreen } from './screens/FeedScreen.js'
+import { ThreadScreen } from './screens/ThreadScreen.js';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+
+        {/* WELCOME SCREEN */} 
+        {/* <Stack.Screen 
+          name="Welcome" 
+          component={WelcomeScreen}
+          options={{
+            animationEnabled: false,
+            headerTransparent: true,
+          }}
+        /> */}
+
+        {/* FEED SCREEN */}
+        <Stack.Screen 
+          name="Feed" 
+          component={FeedScreen} 
+          options= {({ navigation, route }) => ({
+            title: "Jakarta",
+            animationEnabled: false,
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: '800',
+              fontSize: 20,
+            },
+          })}
+        />
+
+        {/* THREAD SCREEN */}
+        <Stack.Screen 
+          name="Thread" 
+          component={ThreadScreen} 
+          options={{
+            animationEnabled: false,
+            headerStyle: {
+              backgroundColor: 'rgb(77, 135, 246)',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
-const styles = StyleSheet.create({
-  body: {
-    backgroundColor: "#FFBD00",
-    flex: 1,
-    justifyContent: "center", 
-    alignItems: "center",
-  },
-  lead: {
-    fontSize: 25,
-    fontWeight: "500",
-    lineHeight: 30,
-    color: "white",
-    fontFamily: "Helvetica",
-    marginBottom: 50,
-  },
-  brand: {
-    height: 150,
-    width: 150,
-    marginBottom: 50,
-  },
-  enterButton: {
-    backgroundColor:'white',
-    borderRadius:10,
-    width: 300,
-    height: 50,
-    justifyContent: "center", 
-    alignItems: "center",
-  },
-  enterButtonText: {
-    color:'orange',
-    textAlign:'center',
-    fontSize: 25,
-    fontWeight: "500",
-    paddingLeft : 10,
-    paddingRight : 10
-  }
-});
+export default App;

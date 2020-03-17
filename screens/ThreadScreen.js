@@ -18,7 +18,7 @@ export function ThreadScreen({route}) {
                         <Text style={styles.identity}>{jsonData.identity}</Text>
                     </View>
                     <View style={styles.likeContainer}>
-                        <Text style={styles.likes}>{jsonData.likes} ❤️</Text>
+                        <Text style={styles.likes}>{jsonData.likes} ♥</Text>
                     </View>
                 </View>
             </View>
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     },
     article: {
         fontSize: 17,
+        fontFamily: "Nunito",
     },
     footContainer: {
         flex: 1,
@@ -64,7 +65,8 @@ const styles = StyleSheet.create({
     },
     identity: {
         fontSize: 14,
-        color: "grey"
+        color: "grey",
+        fontFamily: "Nunito",
     },
     replies: {
         fontSize: 14,

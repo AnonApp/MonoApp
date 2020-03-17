@@ -89,7 +89,7 @@ function LikeButton({numberOfLikes}) {
     if (numberOfLikes > 0) {
         return (
             <TouchableOpacity>
-                <Text style={styles.likes}>{numberOfLikes} ♥️</Text>
+                <Text style={styles.likes}>{numberOfLikes} ♥</Text>
             </TouchableOpacity>
         )
     } else {
@@ -133,7 +133,8 @@ export function FeedScreen({navigation}) {
         width: Dimensions.get('window').width,
         fontSize: 17,
         fontWeight: '500',
-        paddingHorizontal: 25,
+        paddingHorizontal: 20,
+        fontFamily: "Nunito",
     },
     itemContainer: {
         backgroundColor: "white",
@@ -142,10 +143,11 @@ export function FeedScreen({navigation}) {
         borderColor: '#d6d7da',
         minHeight: 100,
         flex: 1,
-        flexDirection: "column",
+        flexDirection: "column"
     },
     article: {
         fontSize: 17,
+        fontFamily: "Nunito",
     },
     footContainer: {
         flex: 1,
@@ -158,7 +160,8 @@ export function FeedScreen({navigation}) {
     },
     identity: {
         fontSize: 14,
-        color: "grey"
+        color: "grey",
+        fontFamily: "Nunito",
     },
     replies: {
         fontSize: 14,
